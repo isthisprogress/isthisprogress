@@ -8,7 +8,7 @@ media:
     label: Static files (favicons, etc.)
     input: static
     output: /
-    extensions: [ico, png, svg, jpg, jpeg, webp, pdf]
+    extensions: [ico, png, svg, jpg, jpeg, webp, pdf, html]
 
 content:
   # ---------------------------------------------------------------
@@ -114,6 +114,33 @@ content:
     label: About Page
     type: file
     path: content/about.md
+    format: toml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm:ssXXX
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body
+        type: rich-text
+
+  # ---------------------------------------------------------------
+  # Games page: content/games.md
+  # ---------------------------------------------------------------
+  - name: games
+    label: Games Page
+    type: file
+    path: content/games.md
     format: toml-frontmatter
     fields:
       - name: title
